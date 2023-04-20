@@ -6,6 +6,7 @@ import com.alekseivolkov.datatransfer.entity.Roles;
 import com.alekseivolkov.datatransfer.exception.ValidationException;
 import com.alekseivolkov.datatransfer.service.UserService;
 import com.alekseivolkov.datatransfer.util.JspHelper;
+import com.alekseivolkov.datatransfer.util.UrlPath;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +14,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-@WebServlet("/registration")
+
+@WebServlet(UrlPath.REGISTRATION)
 public class RegistrationServlet extends HttpServlet {
 
     private final UserService userService = UserService.getInstance();
@@ -38,7 +40,7 @@ public class RegistrationServlet extends HttpServlet {
                 .build();
         try {
         userService.create(userDto);
-        resp.sendRedirect("/login");
+        resp.sendRedirect(UrlPath.LOGIN);
         } catch (ValidationException exception) {
             req.setAttribute("errors", exception.getErrors());
             doGet(req, resp);

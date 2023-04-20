@@ -1,5 +1,6 @@
 
-## Data Transfer (from HTML Form to DB)
+## SessionAuth
+#### Registration, Authorization, Login, Logout, Language select
 
 >Using: `PostgreSQL`, `Lombok`, `JSP`, `Servlet API`, `JSTL`
 
@@ -23,3 +24,4 @@ For creating table for your DB please use `sql_script.sql` | Settings for your D
 ### Commits:
 + `v.1.0` 
 + `v.2.0`
++ `v.2.1`
